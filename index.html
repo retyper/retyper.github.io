@@ -9,6 +9,7 @@
             --bg-color: #0f172a;
             --card-bg: #1e293b;
             --accent-color: #38bdf8;
+            --yt-color: #ff0000; /* 유튜브 레드 */
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
         }
@@ -48,27 +49,42 @@
         .app-card {
             background: var(--card-bg);
             border-radius: 20px;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.05);
             transition: transform 0.3s ease;
         }
-        .app-card:hover {
-            transform: translateY(-5px);
+        h2 { margin: 10px 0; font-size: 2.5rem; }
+        .description { color: var(--text-dim); line-height: 1.6; margin-bottom: 30px; }
+        
+        /* 버튼 그룹 */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        h2 { margin: 10px 0; font-size: 2rem; }
-        .description { color: var(--text-dim); line-height: 1.6; margin-bottom: 25px; }
         .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--bg-color);
+            display: block;
             text-decoration: none;
-            padding: 12px 30px;
+            padding: 15px 30px;
             border-radius: 30px;
             font-weight: bold;
-            transition: opacity 0.2s;
+            transition: all 0.2s;
         }
-        .btn:hover { opacity: 0.9; }
+        .btn-store {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+        .btn-youtube {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 2px solid var(--yt-color);
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        
         footer {
             margin-top: auto;
             padding: 40px 20px;
@@ -89,13 +105,17 @@
 
     <main>
         <div class="app-card">
-            <div style="font-size: 3rem; margin-bottom: 10px;">🔔</div>
+            <div style="font-size: 4rem; margin-bottom: 10px;">🔔</div>
             <h2>Zen Bell</h2>
             <p class="description">
                 불안의 시대, 당신의 어지러운 잡음을 지워줄 단 하나의 울림.<br>
                 실제 사찰의 범종소리를 정교하게 담아낸 디지털 도구입니다.
             </p>
-            <a href="https://apps.apple.com/kr/app/zen-bell/id6756917920" class="btn">App Store에서 보기</a>
+            
+            <div class="btn-group">
+                <a href="https://apps.apple.com/kr/app/zen-bell/id6756917920" class="btn btn-store">App Store에서 보기</a>
+                <a href="https://youtube.com/shorts/dzlTAiJam7Q?feature=share" target="_blank" class="btn btn-youtube">▶ 시연 영상 보기 (YouTube)</a>
+            </div>
         </div>
     </main>
 
